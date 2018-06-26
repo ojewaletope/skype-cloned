@@ -7,6 +7,7 @@ import store from "./store";
 
 const fancyLog = () => {
   console.log("%c Rendered with 👉 👉 👇 ", "background: purple;color: #FFF");
+  console.log(store.getState());
 };
 
 const render = () => {
