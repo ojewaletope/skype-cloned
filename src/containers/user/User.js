@@ -1,10 +1,15 @@
 import React from "react";
 import "./User.css";
+import store from "../../store";
+import { setActiveUserId } from "../../actions";
 
 const User = ({ user }) => {
   const { name, profile_pic, status } = user;
+  const handleUserClick = ({ user_id }) => {
+    store.dispatch(setActiveUserId(user_id));
+  };
   return (
-    <div className="User">
+    <div className="User" onClick={handleUserClick.bind(null, user)}>
       <img src={profile_pic} alt="profile picture" className="User__pic" />
       <div className="User__details">
         <p className="User__details--name">{name}</p>
